@@ -10,7 +10,7 @@ Major changes:
 - Small changes in the arduino.py file
 - Added examples
 
-Here follows the original README:
+Here follows the original README (with updated example):
 
 > &copy; 2009-2010 Akash Manohar J <akash@akash.im>
 > under the MIT License
@@ -48,21 +48,21 @@ without having to repeatedly load the program to the Arduino board.
 
 ## Usage example
 
-        from arduino import Arduino
-        import time
+    from arduino import Arduino
+    import time
 
-        b = Arduino('/dev/ttyUSB0')
-        pin = 9
+    b = Arduino('/dev/ttyUSB0')
+    pin = 9
 
-        #declare output pins as a list/tuple
-        b.output([pin])
+    #declare output pins as a list/tuple
+    b.output([pin])
 
-        for xrange(10):
-            b.setHigh(pin)
-            time.sleep(1)
-            print b.getState(pin)
-            b.setLow(pin)
-            print b.getState(pin)
-            time.sleep(1)
+    for xrange(10):
+        b.setHigh(pin)
+        time.sleep(1)
+        print b.getState(pin)
+        b.setLow(pin)
+        print b.getState(pin)
+        time.sleep(1)
 
-        b.close()
+    b.close()
