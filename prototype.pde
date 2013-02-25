@@ -1,6 +1,15 @@
+
+#ifndef SERIAL_RATE
+#define SERIAL_RATE         115200
+#endif
+
+#ifndef SERIAL_TIMEOUT
+#define SERIAL_TIMEOUT      5
+#endif
+
 void setup() {
-    Serial.begin(115200);
-    Serial.setTimeout(5);
+    Serial.begin(SERIAL_RATE);
+    Serial.setTimeout(SERIAL_TIMEOUT);
 
     int cmd = readData();
     for (int i = 0; i < cmd; i++) {
