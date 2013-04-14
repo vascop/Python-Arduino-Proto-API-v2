@@ -33,10 +33,10 @@ void loop() {
             analogWrite(readData(), readData()); break;
         case 4 :
             //read analog value
-            Serial.println(analogRead(readData()));
+            Serial.println(analogRead(readData())); break;
         case 99:
-            //just dummy to cancel the current read, needed to prevent lock when the PC side
-            //dropped the "w" that we sent
+            //just dummy to cancel the current read, needed to prevent lock 
+            //when the PC side dropped the "w" that we sent
             break;
     }
 }
