@@ -8,6 +8,7 @@ class Arduino(object):
 
     def __init__(self, port, baudrate=115200):
         self.serial = serial.Serial(port, baudrate)
+        self.serial.write('99')
 
     def __str__(self):
         return "Arduino is on port %s at %d baudrate" %(self.serial.port, self.serial.baudrate)
