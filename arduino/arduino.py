@@ -8,7 +8,7 @@ class Arduino(object):
 
     def __init__(self, port, baudrate=115200):
         self.serial = serial.Serial(port, baudrate)
-        self.serial.write('99')
+        self.serial.write(b'99')
 
     def __str__(self):
         return "Arduino is on port %s at %d baudrate" %(self.serial.port, self.serial.baudrate)
@@ -56,10 +56,13 @@ class Arduino(object):
     def __sendData(self, serial_data):
         while(self.__getData()[0] != "w"):
             pass
-        self.serial.write(str(serial_data))
+        serial_data = str(serial_data).encode('utf-8')
+        self.serial.write(serial_data)
 
     def __getData(self):
-        return self.serial.readline().rstrip('\n')
+        input_string = self.serial.readline()
+        input_string = input_string.decode('utf-8')
+        return input_string.rstrip('\n')
 
     def __formatPinState(self, pinValue):
         if pinValue == '1':
